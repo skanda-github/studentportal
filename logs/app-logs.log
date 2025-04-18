@@ -1,0 +1,71 @@
+2025-04-18 18:02:44 [main] INFO  com.example.studentportal.StudentportalApplication - Starting StudentportalApplication using Java 17.0.10 with PID 21448 (C:\Code Files\Backend\Practice\studentportal\target\classes started by Z8STD in C:\Code Files\Backend\Practice\studentportal)
+2025-04-18 18:02:44 [main] DEBUG com.example.studentportal.StudentportalApplication - Running with Spring Boot v3.4.4, Spring v6.2.5
+2025-04-18 18:02:44 [main] INFO  com.example.studentportal.StudentportalApplication - No active profile set, falling back to 1 default profile: "default"
+2025-04-18 18:02:46 [main] INFO  com.example.studentportal.StudentportalApplication - Started StudentportalApplication in 2.327 seconds (process running for 2.586)
+2025-04-18 18:03:47 [http-nio-8080-exec-1] INFO  com.example.studentportal.controller.StudentController - Request received to add student: John Doe
+2025-04-18 18:03:47 [http-nio-8080-exec-1] INFO  com.example.studentportal.controller.StudentController - Student added successfully: John Doe
+2025-04-18 18:05:44 [http-nio-8080-exec-2] INFO  com.example.studentportal.controller.StudentController - Request received to add student: 
+2025-04-18 18:05:44 [http-nio-8080-exec-2] ERROR com.example.studentportal.controller.StudentController - Validation failed for student: com.example.studentportal.model.Student@343bf1c0 | Errors: [Field error in object 'student' on field 'name': rejected value []; codes [NotEmpty.student.name,NotEmpty.name,NotEmpty.java.lang.String,NotEmpty]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [student.name,name]; arguments []; default message [name]]; default message [{student.name.empty}], Field error in object 'student' on field 'name': rejected value []; codes [Size.student.name,Size.name,Size.java.lang.String,Size]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [student.name,name]; arguments []; default message [name],50,3]; default message [{student.name.size}]]
+2025-04-18 18:06:55 [http-nio-8080-exec-3] INFO  com.example.studentportal.controller.StudentController - Request received to add student: Jo
+2025-04-18 18:06:55 [http-nio-8080-exec-3] ERROR com.example.studentportal.controller.StudentController - Validation failed for student: com.example.studentportal.model.Student@a905640 | Errors: [Field error in object 'student' on field 'name': rejected value [Jo]; codes [Size.student.name,Size.name,Size.java.lang.String,Size]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [student.name,name]; arguments []; default message [name],50,3]; default message [{student.name.size}]]
+2025-04-18 18:07:45 [http-nio-8080-exec-10] INFO  com.example.studentportal.controller.StudentController - Request received to add student: John Doe
+2025-04-18 18:07:45 [http-nio-8080-exec-10] ERROR com.example.studentportal.controller.StudentController - Validation failed for student: com.example.studentportal.model.Student@1d944bbb | Errors: [Field error in object 'student' on field 'age': rejected value [15]; codes [Min.student.age,Min.age,Min.int,Min]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [student.age,age]; arguments []; default message [age],18]; default message [{student.age.min}]]
+2025-04-18 18:08:14 [http-nio-8080-exec-5] INFO  com.example.studentportal.controller.StudentController - Request received to fetch student with ID: 1
+2025-04-18 18:08:14 [http-nio-8080-exec-5] INFO  com.example.studentportal.controller.StudentController - Student with ID 1 found.
+2025-04-18 18:08:22 [http-nio-8080-exec-6] INFO  com.example.studentportal.controller.StudentController - Request received to fetch student with ID: 99
+2025-04-18 18:08:22 [http-nio-8080-exec-6] WARN  com.example.studentportal.controller.StudentController - Student with ID 99 not found.
+2025-04-18 18:08:22 [http-nio-8080-exec-6] WARN  com.example.studentportal.exception.GlobalExceptionHandler - ResourceNotFoundException - Student with ID 99 not found.
+2025-04-18 18:08:39 [http-nio-8080-exec-7] ERROR com.example.studentportal.controller.StudentController - Simulated internal server error triggered.
+2025-04-18 18:08:39 [http-nio-8080-exec-7] ERROR com.example.studentportal.exception.GlobalExceptionHandler - Unexpected error occurred
+java.lang.RuntimeException: RuntimeException - Simulated internal server error
+	at com.example.studentportal.controller.StudentController.triggerError(StudentController.java:51)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:842)

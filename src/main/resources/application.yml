@@ -1,0 +1,8 @@
+# server.port: Configures the server to run on port 8080.
+server:
+  port: 8080
+
+# spring.messages.basename: Points to the location of custom error message files
+spring:
+  messages:
+    basename: messages

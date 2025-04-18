@@ -1,0 +1,3 @@
+student.name.empty: "Student name cannot be empty."
+student.name.size: "Student name must be between 3 and 50 characters."
+student.age.min: "Student age must be at least 18."

@@ -1,0 +1,84 @@
+# ### 1. Get all students (Dummy list — not from DB)
+# GET http://localhost:8080/students
+# Accept: application/json
+
+# ### 2. Add a valid student (Success - Valid Input)
+# POST http://localhost:8080/students
+# Content-Type: application/json
+
+# {
+#   "name": "John Doe",
+#   "email": "john.doe@example.com",
+#   "age": 22
+# }
+
+# ### 3. Add a student - FAIL (Missing name and invalid email)
+# POST http://localhost:8080/students
+# Content-Type: application/json
+
+# {
+#   "email": "not-an-email",
+#   "age": 17
+# }
+
+# ### 4. Add a student - FAIL (Age too low)
+# POST http://localhost:8080/students
+# Content-Type: application/json
+
+# {
+#   "name": "Young Kid",
+#   "email": "young.kid@example.com",
+#   "age": 10
+# }
+
+### Valid Student - Should pass validation
+POST http://localhost:8080/students
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "age": 22
+}
+
+### Invalid Student - Name is empty
+POST http://localhost:8080/students
+Content-Type: application/json
+
+{
+  "name": "",
+  "age": 22
+}
+
+### Invalid Student - Name is too short
+POST http://localhost:8080/students
+Content-Type: application/json
+
+{
+  "name": "Jo",
+  "age": 22
+}
+
+### Invalid Student - Age is less than 18
+POST http://localhost:8080/students
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "age": 15
+}
+
+
+### Get a student by ID - Found (id = 1 - hardcoded success)
+GET http://localhost:8080/students/1
+Accept: application/json
+
+### Get a student by ID - NOT Found (any ID other than 1 triggers ResourceNotFoundException)
+GET http://localhost:8080/students/99
+Accept: application/json
+
+### Trigger a general exception (Optional - if you expose a test endpoint or do null ops)
+# You can temporarily add a method to StudentController like this:
+# @GetMapping("/test-error") public String triggerError() { throw new RuntimeException("Test crash"); }
+
+# Then test it:
+GET http://localhost:8080/students/test-error

@@ -1,0 +1,47 @@
+<configuration>
+
+    <!-- Appender for Spring Framework logs -->
+    <!-- Writes Spring logs to logs/spring-logs.log with daily rotation -->
+    <appender name="SPRING_LOGS" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/spring-logs.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/spring-logs.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>5</maxHistory> <!-- Keep logs for last 5 days -->
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger - %msg%n</pattern> <!-- Log format -->
+        </encoder>
+    </appender>
+
+    <!-- Appender for your application code logs -->
+    <!-- Writes logs from your code to logs/app-logs.log with daily rotation -->
+    <appender name="APP_LOGS" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/app-logs.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/app-logs.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>5</maxHistory> <!-- Keep logs for last 5 days -->
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger - %msg%n</pattern> <!-- Log format -->
+        </encoder>
+    </appender>
+
+    <!-- Logger for Spring framework -->
+    <!-- Sends only Spring logs to the SPRING_LOGS appender -->
+    <logger name="org.springframework" level="INFO" additivity="false">
+        <appender-ref ref="SPRING_LOGS" />
+    </logger>
+
+    <!-- Logger for your application package -->
+    <!-- Sends only your code logs to the APP_LOGS appender -->
+    <logger name="com.example.studentportal" level="DEBUG" additivity="false">
+        <appender-ref ref="APP_LOGS" />
+    </logger>
+
+    <!-- Root logger (fallback for anything else) -->
+    <!-- Sends any uncaught logs to app-logs.log at WARN level -->
+    <root level="WARN">
+        <appender-ref ref="APP_LOGS" />
+    </root>
+
+</configuration>
